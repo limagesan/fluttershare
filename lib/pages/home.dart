@@ -1,5 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:google_sign_in/google_sign_in.dart';
+
+final GoogleSignIn googleSignIn = GoogleSignIn();
 
 class Home extends StatefulWidget {
   @override
@@ -9,8 +12,46 @@ class Home extends StatefulWidget {
 class _HomeState extends State<Home> {
   bool isAuth = false;
 
+  @override
+  void initState() {
+    super.initState();
+    // Detects when user signed in
+    googleSignIn.onCurrentUserChanged.listen((account) {
+      handleSignIn(account);
+    }, onError: (err) {
+      print('Error signing in: $err');
+    });
+
+    // Reauthenticate user when app is opened
+    googleSignIn.signInSilently(suppressErrors: false).then((account) {
+      handleSignIn(account);
+    }).catchError((err) {
+      print('Error signing in: $err');
+    });
+  }
+
+  handleSignIn(GoogleSignInAccount account) {
+    if (account != null) {
+      print('Account $account');
+      setState(() {
+        isAuth = true;
+      });
+    } else {
+      isAuth = false;
+    }
+  }
+
+  login() {
+    googleSignIn.signIn();
+  }
+
+  logout() {
+    print('logout');
+    googleSignIn.signOut();
+  }
+
   Widget buildAuthScreen() {
-    return Text('Authenticated');
+    return RaisedButton(child: Text('Logout'), onPressed: logout);
   }
 
   Scaffold buildUnAuthScreen() {
@@ -35,7 +76,7 @@ class _HomeState extends State<Home> {
                         fontSize: 90.0,
                         color: Colors.white)),
                 GestureDetector(
-                    onTap: () => print('tapped'),
+                    onTap: login(),
                     child: Container(
                       width: 260.0,
                       height: 60.0,
@@ -52,6 +93,7 @@ class _HomeState extends State<Home> {
 
   @override
   Widget build(BuildContext context) {
+    print(isAuth);
     return isAuth ? buildAuthScreen() : buildUnAuthScreen();
   }
 }
