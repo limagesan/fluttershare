@@ -20,7 +20,10 @@ class _HomeState extends State<Home> {
                 gradient: LinearGradient(
                     begin: Alignment.topRight,
                     end: Alignment.bottomLeft,
-                    colors: [Colors.teal, Colors.purple])),
+                    colors: [
+                  Theme.of(context).primaryColor,
+                  Theme.of(context).accentColor
+                ])),
             alignment: Alignment.center,
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
