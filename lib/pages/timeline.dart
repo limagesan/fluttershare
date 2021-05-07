@@ -35,12 +35,28 @@ class _TimelineState extends State<Timeline> {
     print(doc.exists);
   }
 
+  createUser() async {
+    usersRef
+        .document("Gbt8MTe0x0LPT0Lcyy8H")
+        .setData({"username": "Jin", "postCount": 0, "isAdmin": false});
+
+    // usersRef.add({"username": "Jin", "postCount": 0, "isAdmin": false});
+  }
+
+  updateUser() async {
+    final doc = await usersRef.document("Gbt8MTe0x0LPT0Lcyy8H").get();
+    if (doc.exists) {
+      doc.reference
+          .updateData({"username": "Jin", "postCount": 0, "isAdmin": false});
+    }
+  }
+
   @override
   Widget build(context) {
     return Scaffold(
         appBar: header(context, isAppTitle: true),
-        body: FutureBuilder<QuerySnapshot>(
-          future: usersRef.getDocuments(),
+        body: StreamBuilder<QuerySnapshot>(
+          stream: usersRef.snapshots(),
           builder: (context, snapshot) {
             if (!snapshot.hasData) {
               return circularProgress();
