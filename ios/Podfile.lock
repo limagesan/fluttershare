@@ -105,8 +105,6 @@ PODS:
   - FMDB/standard (2.7.5)
   - geolocator (5.0.1):
     - Flutter
-  - google_api_availability (2.0.1):
-    - Flutter
   - google_sign_in (0.0.1):
     - Flutter
     - GoogleSignIn (~> 4.0)
@@ -166,7 +164,7 @@ PODS:
   - image_picker (0.0.1):
     - Flutter
   - leveldb-library (1.20)
-  - location_permissions (2.0.2):
+  - location_permissions (2.0.5):
     - Flutter
   - nanopb (0.3.901):
     - nanopb/decode (= 0.3.901)
@@ -176,9 +174,9 @@ PODS:
   - path_provider (0.0.1):
     - Flutter
   - Protobuf (3.8.0)
-  - sqflite (0.0.1):
+  - sqflite (0.0.2):
     - Flutter
-    - FMDB (~> 2.7.2)
+    - FMDB (>= 2.7.5)
 
 DEPENDENCIES:
   - cloud_firestore (from `.symlinks/plugins/cloud_firestore/ios`)
@@ -188,7 +186,6 @@ DEPENDENCIES:
   - firebase_storage (from `.symlinks/plugins/firebase_storage/ios`)
   - Flutter (from `Flutter`)
   - geolocator (from `.symlinks/plugins/geolocator/ios`)
-  - google_api_availability (from `.symlinks/plugins/google_api_availability/ios`)
   - google_sign_in (from `.symlinks/plugins/google_sign_in/ios`)
   - image_picker (from `.symlinks/plugins/image_picker/ios`)
   - location_permissions (from `.symlinks/plugins/location_permissions/ios`)
@@ -209,7 +206,6 @@ SPEC REPOS:
     - FirebaseInstanceID
     - FirebaseMessaging
     - FirebaseStorage
-    - FMDB
     - GoogleAppMeasurement
     - GoogleSignIn
     - GoogleToolboxForMac
@@ -220,6 +216,8 @@ SPEC REPOS:
     - leveldb-library
     - nanopb
     - Protobuf
+  trunk:
+    - FMDB
 
 EXTERNAL SOURCES:
   cloud_firestore:
@@ -236,8 +234,6 @@ EXTERNAL SOURCES:
     :path: Flutter
   geolocator:
     :path: ".symlinks/plugins/geolocator/ios"
-  google_api_availability:
-    :path: ".symlinks/plugins/google_api_availability/ios"
   google_sign_in:
     :path: ".symlinks/plugins/google_sign_in/ios"
   image_picker:
@@ -270,7 +266,6 @@ SPEC CHECKSUMS:
   Flutter: 434fef37c0980e73bb6479ef766c45957d4b510c
   FMDB: 2ce00b547f966261cd18927a3ddb07cb6f3db82a
   geolocator: f3dd3b5b1761a15a4da00665774c5a8319e657d6
-  google_api_availability: 163b30f802e6148c67f092aa4501c90ddd8eec8d
   google_sign_in: 27e70a98b529f0b076d4b19f231b81da28b1750b
   GoogleAppMeasurement: ffe513e90551844a739e7bcbb1d2aca1c28a4338
   GoogleSignIn: 7ff245e1a7b26d379099d3243a562f5747e23d39
@@ -279,13 +274,13 @@ SPEC CHECKSUMS:
   "gRPC-C++": e76441995900ac90e9bd98644ab4733f12521edf
   gRPC-Core: 4028031ed2c5267cca0d846c876d8046b1ecb9b6
   GTMSessionFetcher: 61bb0f61a4cb560030f1222021178008a5727a23
-  image_picker: 16e5fec1fbc87fd3b297c53e4048521eaf17cd06
+  image_picker: 9c3312491f862b28d21ecd8fdf0ee14e601b3f09
   leveldb-library: 08cba283675b7ed2d99629a4bc5fd052cd2bb6a5
-  location_permissions: 67cfaff583afbb027a9f9248196f4b79c40f3cdc
+  location_permissions: 4a49d4e5bec5b653643e551ab77963cc99bb0e4a
   nanopb: 2901f78ea1b7b4015c860c2fdd1ea2fee1a18d48
   path_provider: f96fff6166a8867510d2c25fdcc346327cc4b259
   Protobuf: 3f617b9a6e73605565086864c9bc26b2bf2dd5a3
-  sqflite: ff1d9da63c06588cc8d1faf7256d741f16989d5a
+  sqflite: 6d358c025f5b867b29ed92fc697fd34924e11904
 
 PODFILE CHECKSUM: 8e679eca47255a8ca8067c4c67aab20e64cb974d
 
